@@ -53,16 +53,3 @@ Below are steps you can follow to get the server up and running on your machine.
 ### Using Postman to test the API
 
 [Insert instructions here]
-
-
-## Authors
-
-```bash
-| Name           | Email                    |
-|----------------|--------------------------|
-| Antriksh Dhand | dhandantriksh@gmail.com  |
-| Parth Bhargava | parthbhargava0@gmail.com |
-```
-
-## Licence
-This project is licensed under the MIT License - see the LICENSE.md file for details.
