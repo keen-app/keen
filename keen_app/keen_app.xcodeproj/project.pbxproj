@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69722BD51308008F9B94 /* ProfileModel.swift */; };
+		1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */; };
 		1FDB49102BD4FED600945410 /* keen_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB490F2BD4FED600945410 /* keen_appApp.swift */; };
-		1FDB49122BD4FED600945410 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49112BD4FED600945410 /* ContentView.swift */; };
+		1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49112BD4FED600945410 /* ProfileView.swift */; };
 		1FDB49142BD4FED700945410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB49132BD4FED700945410 /* Assets.xcassets */; };
 		1FDB49172BD4FED700945410 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB49162BD4FED700945410 /* Preview Assets.xcassets */; };
 		1FDB49212BD4FED800945410 /* keen_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49202BD4FED800945410 /* keen_appTests.swift */; };
@@ -34,9 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F2C69722BD51308008F9B94 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		1FDB490C2BD4FED600945410 /* keen_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keen_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDB490F2BD4FED600945410 /* keen_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keen_appApp.swift; sourceTree = "<group>"; };
-		1FDB49112BD4FED600945410 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1FDB49112BD4FED600945410 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1FDB49132BD4FED700945410 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FDB49162BD4FED700945410 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FDB491C2BD4FED800945410 /* keen_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keen_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				1FDB490F2BD4FED600945410 /* keen_appApp.swift */,
-				1FDB49112BD4FED600945410 /* ContentView.swift */,
+				1FDB49112BD4FED600945410 /* ProfileView.swift */,
+				1F2C69722BD51308008F9B94 /* ProfileModel.swift */,
+				1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */,
 				1FDB49132BD4FED700945410 /* Assets.xcassets */,
 				1FDB49152BD4FED700945410 /* Preview Content */,
 			);
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDB49122BD4FED600945410 /* ContentView.swift in Sources */,
+				1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */,
+				1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */,
+				1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */,
 				1FDB49102BD4FED600945410 /* keen_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

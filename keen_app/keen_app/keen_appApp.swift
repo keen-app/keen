@@ -11,7 +11,7 @@ import SwiftUI
 struct keen_appApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProfileView()
         }
     }
 }
