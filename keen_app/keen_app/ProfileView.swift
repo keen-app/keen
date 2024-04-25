@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
-    var viewModel = ProfileViewModel()
+    @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
-        ProfileListView(viewModel: ProfileViewModel())
+        VStack(spacing: 35) {
+            ProfileDetails(viewModel: viewModel)
+            ProfileListView(viewModel: viewModel)
+        }
+        
+        Spacer()
+    }
+}
+
+struct ProfileDetails: View {
+    var viewModel: ProfileViewModel
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            ProfilePicture(image: viewModel.userDetails?.profilePicture, size: 100)
+            Text(viewModel.userDetails!.firstName)
+                .font(.system(size: 24, weight: .semibold))
+        }
+        .padding(.top, 50)
     }
 }
 
@@ -41,6 +58,21 @@ struct ProfileListView: View {
     }
 }
 
+struct ProfilePicture: View {
+    var image: Image?
+    var size: CGFloat
+    var body: some View {
+        if let image {
+            image
+        } else {
+            Color.blue
+                .frame(width: size, height: size)
+                .scaledToFit()
+                .clipShape(Circle())
+        }
+    }
+}
+
 #Preview {
-    ProfileView()
+    ProfileView(viewModel: ProfileViewModel(userDetails: nil))
 }

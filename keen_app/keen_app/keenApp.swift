@@ -1,5 +1,5 @@
 //
-//  keen_appApp.swift
+//  keenApp.swift
 //  keen_app
 //
 //  Created by Jennifer Tan on 4/21/24.
@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct keen_appApp: App {
+struct keenApp: App {
     var body: some Scene {
         WindowGroup {
-            ProfileView()
+            ProfileView(viewModel: ProfileViewModel(userDetails: nil))
         }
     }
 }
