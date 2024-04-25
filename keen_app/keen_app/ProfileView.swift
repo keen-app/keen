@@ -64,6 +64,9 @@ struct ProfilePicture: View {
     var body: some View {
         if let image {
             image
+                .frame(width: size, height: size)
+                .scaledToFit()
+                .clipShape(Circle())
         } else {
             Color.blue
                 .frame(width: size, height: size)
