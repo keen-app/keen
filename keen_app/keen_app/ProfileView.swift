@@ -48,9 +48,12 @@ struct ProfileListView: View {
                     Image(systemName: "chevron.right")
                         .frame(width: 40)
                 }
-                .padding(.top, 10)
-                .padding(.bottom, 10)
-                .frame(width: 342)
+                .frame(width: 342, height: 50)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    print(item.id, "option tapped!")
+                }
+                
                 Divider()
                     .frame(width: 332)
             }
