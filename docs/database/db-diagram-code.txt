@@ -1,0 +1,41 @@
+Table User {
+  email varchar [pk]
+  first_name varchar
+  last_name varchar
+  username varchar UNIQUE
+}
+
+Table Visibility {
+  id int [pk]
+  type varchar
+}
+
+Table Event {
+  id int [pk]
+  name varchar
+  location varchar
+  url text
+  emoji text
+  description text
+  visibility int [ref: > Visibility.id]
+  start datetime
+  end datetime
+}
+
+Table Collection {
+  id int [pk]
+  name varchar
+  description text
+  u_email varchar [ref: - User.email]
+}
+
+Table EventCollected {
+  event_id int [pk, ref: - Event.id]
+  collection_id int [pk, ref: - Collection.id]
+  date_added datetime
+}
+
+Table Keened {
+  u_email varchar [pk, ref: - User.email]
+  event_id int [pk, ref: - Event.id]
+}
