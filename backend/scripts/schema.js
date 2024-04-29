@@ -6,7 +6,7 @@ const userSchema = Joi.object({
   first_name: Joi.string().max(255).required(),
   last_name: Joi.string().max(255).required(),
   username: Joi.string().max(255).required(),
-}).unknown(true); // Allows additional properties
+});
 
 // Privacy setting enum
 const privacySettingSchema = Joi.string().valid('public', 'private');
@@ -22,7 +22,7 @@ const eventSchema = Joi.object({
   location: Joi.string().max(255),
   url: Joi.string().uri(),
   description: Joi.string(),
-}).unknown(true); // Allows additional properties
+});
 
 // Collection schema
 const collectionSchema = Joi.object({
@@ -30,20 +30,20 @@ const collectionSchema = Joi.object({
   name: Joi.string().max(255).required(),
   description: Joi.string(),
   user_email: Joi.string().email().required(), // Foreign key
-}).unknown(true); // Allows additional properties
+});
 
 // Contains schema (junction table for Collection and Event)
 const containsSchema = Joi.object({
   event_id: Joi.number().integer().required(), // Foreign key to Event
   collection_id: Joi.number().integer().required(), // Foreign key to Collection
   datetime_added: Joi.date().iso().default(new Date()), // Default value for datetime_added
-}).unknown(true);
+});
 
 // Keened schema (junction table for User and Event)
 const keenedSchema = Joi.object({
   user_email: Joi.string().email().required(), // Foreign key to User
   event_id: Joi.number().integer().required(), // Foreign key to Event
-}).unknown(true); // Allows additional properties
+});
 
 module.exports = {
   userSchema,
