@@ -8,17 +8,25 @@
 import Foundation
 import SwiftUI
 
-class ProfileViewModel {
-    var profileItems: [ProfileItem] = []
+class ProfileViewModel: ObservableObject {
+    @Published var profileItems: [ProfileItem] = []
+    @Published var userDetails: User? // Change user details to be non-optional when onboarding is set up (https://github.com/keen-app/keen/issues/6)
+    // Set a user dummy data
+    let dummyUser = User(firstName: "John", lastName: "Doe")
     
-    init() {
+    init(userDetails: User?) {
         addProfileItems()
+        addUserDetails(userDetails)
     }
     
     func addProfileItems() {
         profileItems = profileData
     }
-        
+    
+    func addUserDetails(_ userDetails: User?) {
+        self.userDetails = userDetails ?? dummyUser
+    }
+    
 }
 
 let profileData = [
