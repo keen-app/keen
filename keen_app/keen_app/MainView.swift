@@ -13,15 +13,15 @@ struct MainView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Image(systemName: "house")
+                    Label("Home", systemImage: "house")
                 }
             AddActivityView()
                 .tabItem {
-                    Image(systemName: "plus.circle.fill")
+                    Label("Add Activity", systemImage: "plus.circle.fill")
                 }
             ProfileView(viewModel: ProfileViewModel(userDetails: nil))
                 .tabItem {
-                    Image(systemName: "person.fill")
+                    Label("Profile", systemImage: "person.fill")
                 }
         }
     }
