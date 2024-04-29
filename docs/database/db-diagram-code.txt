@@ -1,41 +1,41 @@
 Table User {
   email varchar [pk]
-  first_name varchar
-  last_name varchar
-  username varchar UNIQUE
+  first_name varchar [not null]
+  last_name varchar [not null]
+  username varchar [not null, unique]
 }
 
-Table Visibility {
-  id int [pk]
-  type varchar
+Enum PRIVACY_SETTING {
+  "public"
+  "private"
 }
 
 Table Event {
-  id int [pk]
-  name varchar
+  id serial [pk]
+  name varchar [not null]
+  visibility PRIVACY_SETTING [not null]
   location varchar
   url text
-  emoji text
+  emoji varchar
   description text
-  visibility int [ref: > Visibility.id]
-  start datetime
-  end datetime
+  start timestamptz
+  end timestamptz
 }
 
 Table Collection {
-  id int [pk]
-  name varchar
+  id serial [pk]
+  name varchar [not null]
   description text
-  u_email varchar [ref: - User.email]
+  user_email varchar [ref: <> User.email, not null]
 }
 
-Table EventCollected {
-  event_id int [pk, ref: - Event.id]
-  collection_id int [pk, ref: - Collection.id]
-  date_added datetime
+Table Contains {
+  event_id int [pk, ref: > Event.id]
+  collection_id int [pk, ref: > Collection.id]
+  datetime_added timestamptz [default: `now()`]
 }
 
 Table Keened {
-  u_email varchar [pk, ref: - User.email]
-  event_id int [pk, ref: - Event.id]
+  user_email varchar [pk, ref: - User.email]
+  event_id int [pk, ref: > Event.id]
 }
