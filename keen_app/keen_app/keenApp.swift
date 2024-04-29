@@ -11,7 +11,7 @@ import SwiftUI
 struct keenApp: App {
     var body: some Scene {
         WindowGroup {
-            ProfileView(viewModel: ProfileViewModel(userDetails: nil))
+            MainView()
         }
     }
 }
