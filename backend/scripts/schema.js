@@ -1,46 +1,54 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
+// User schema
 const userSchema = Joi.object({
-    email: Joi.string().email().max(50).required(),
-    first_name: Joi.string().max(20).required(),
-    last_name: Joi.string().max(20).required(),
-    username: Joi.string().max(20).required()
-});
+  email: Joi.string().email().required(),
+  first_name: Joi.string().max(255).required(),
+  last_name: Joi.string().max(255).required(),
+  username: Joi.string().max(255).required(),
+}).unknown(true); // Allows additional properties
 
-// Shouldn't ever need to use visibilitySchema
-const visibilitySchema = Joi.object({
-    id: Joi.number().integer().required(),
-    type: Joi.string().max(10).required()
-});
+// Privacy setting enum
+const privacySettingSchema = Joi.string().valid('public', 'private');
 
+// Event schema
 const eventSchema = Joi.object({
-    id: Joi.number().integer().required(),
-    name: Joi.string().max(50).required(),
-    location: Joi.string().max(50).required(),
-    url: Joi.string().uri().max(255),
-    emoji: Joi.string().max(20),
-    description: Joi.string().max(255).required(),
-    visibility: Joi.number().integer().required(),
-    start: Joi.date().iso(),
-    end: Joi.date().iso()
-});
+  id: Joi.number().integer(), // For primary key
+  name: Joi.string().max(255).required(),
+  visibility: privacySettingSchema.required(),
+  start: Joi.date().iso(), // Using ISO 8601 format for timestamps
+  end_time: Joi.date().iso(),
+  emoji: Joi.string().max(20),
+  location: Joi.string().max(255),
+  url: Joi.string().uri(),
+  description: Joi.string(),
+}).unknown(true); // Allows additional properties
 
+// Collection schema
 const collectionSchema = Joi.object({
-    id: Joi.number().integer().required(),
-    name: Joi.string().max(50).required(),
-    description: Joi.string().required(),
-    u_email: Joi.string().email().max(50).required()
-});
+  id: Joi.number().integer(),
+  name: Joi.string().max(255).required(),
+  description: Joi.string(),
+  user_email: Joi.string().email().required(), // Foreign key
+}).unknown(true); // Allows additional properties
 
-const eventCollectedSchema = Joi.object({
-    event_id: Joi.number().integer().required(),
-    collection_id: Joi.number().integer().required(),
-    date_added: Joi.date().iso().required()
-});
+// Contains schema (junction table for Collection and Event)
+const containsSchema = Joi.object({
+  event_id: Joi.number().integer().required(), // Foreign key to Event
+  collection_id: Joi.number().integer().required(), // Foreign key to Collection
+  datetime_added: Joi.date().iso().default(new Date()), // Default value for datetime_added
+}).unknown(true);
 
+// Keened schema (junction table for User and Event)
 const keenedSchema = Joi.object({
-    u_email: Joi.string().email().max(50).required(),
-    event_id: Joi.number().integer().required()
-});
+  user_email: Joi.string().email().required(), // Foreign key to User
+  event_id: Joi.number().integer().required(), // Foreign key to Event
+}).unknown(true); // Allows additional properties
 
-module.exports = { userSchema };
+module.exports = {
+  userSchema,
+  eventSchema,
+  collectionSchema,
+  containsSchema,
+  keenedSchema,
+};
