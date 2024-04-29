@@ -14,9 +14,8 @@ struct ProfileView: View {
         VStack(spacing: 35) {
             ProfileDetails(viewModel: viewModel)
             ProfileListView(viewModel: viewModel)
+            Spacer()
         }
-        
-        Spacer()
     }
 }
 
