@@ -15,7 +15,7 @@ VALUES
     ('julia@example.com', 'Julia', 'Martinez', 'juliam');
 
 -- Insert Events
-INSERT INTO "Event" (name, visibility, start, end, emoji, location, url, description)
+INSERT INTO "Event" (name, visibility, "start", "end", emoji, location, url, description)
 VALUES
     ('Tech Conference', 'public', '2024-07-20 09:00:00+00', '2024-07-20 18:00:00+00', '💻', 'Tech Center, Silicon Valley', 'http://techconference.com', 'A technology-focused conference with speakers and workshops.'),
     ('Music Festival', 'public', '2024-08-15 10:00:00+00', '2024-08-17 23:59:59+00', '🎵', 'Central Park, New York', 'http://musicfestival.com', 'An annual music festival featuring various artists.'),
