@@ -27,12 +27,12 @@ async function getUsers() {
     }
 }
 
-async function createUser(first_name, last_name, age, email) {
+async function createUser(email, first_name, last_name, username) {
     const client = await pool.connect();
     try {
         const query = {
-            text: 'INSERT INTO "User"(first_name, last_name, age, email) VALUES($1, $2, $3, $4)',
-            values: [first_name, last_name, age, email],
+            text: 'INSERT INTO "User"(email, first_name, last_name, username) VALUES($1, $2, $3, $4)',
+            values: [email, first_name, last_name, username],
         }
         await client.query(query);
         client.release();

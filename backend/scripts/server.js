@@ -39,10 +39,10 @@ app.post('/user/', async (req, res) => {
     try {
         const valid_user = await schema.userSchema.validateAsync(req.body);
         const query = await db.createUser(
+            valid_user.email,
             valid_user.first_name,
             valid_user.last_name,
-            valid_user.age,
-            valid_user.email
+            valid_user.username
         );
 
         if (query === db.QUERY_ERROR) throw "Error inserting user into database";
