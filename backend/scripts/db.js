@@ -18,7 +18,7 @@ const pool = new pg.Pool({
 async function getUsers() {
     const client = await pool.connect();
     try {
-        const res = await client.query('SELECT * FROM users');
+        const res = await client.query('SELECT * FROM keen."User"');
         client.release();
         return res.rows;
     } catch (err) {
@@ -27,12 +27,12 @@ async function getUsers() {
     }
 }
 
-async function createUser(first_name, last_name, age, email) {
+async function createUser(email, first_name, last_name, username) {
     const client = await pool.connect();
     try {
         const query = {
-            text: 'INSERT INTO users(first_name, last_name, age, email) VALUES($1, $2, $3, $4)',
-            values: [first_name, last_name, age, email],
+            text: 'INSERT INTO "User"(email, first_name, last_name, username) VALUES($1, $2, $3, $4)',
+            values: [email, first_name, last_name, username],
         }
         await client.query(query);
         client.release();
