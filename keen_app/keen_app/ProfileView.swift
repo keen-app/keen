@@ -11,11 +11,14 @@ struct ProfileView: View {
     @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
-        VStack(spacing: 35) {
-            ProfileDetails(viewModel: viewModel)
-            ProfileListView(viewModel: viewModel)
-            Spacer()
+        NavigationView {
+            VStack(spacing: 35) {
+                ProfileDetails(viewModel: viewModel)
+                ProfileListView(viewModel: viewModel)
+                Spacer()
+            }
         }
+        .foregroundColor(.black)
     }
 }
 
@@ -38,22 +41,25 @@ struct ProfileListView: View {
     var body: some View {
         VStack {
             ForEach(viewModel.profileItems) { item in
-                HStack {
-                    item.icon
-                        .frame(width: 40)
-                    Text(item.settingsName)
-                        .font(.system(size: 16, weight: .semibold))
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .frame(width: 40)
+                NavigationLink(
+                    destination: MyActivitiesView(viewModel: viewModel)
+                ) {
+                    HStack {
+                        item.icon
+                            .frame(width: 40)
+                        Text(item.settingsName)
+                            .font(.system(size: 16, weight: .semibold))
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .frame(width: 40)
+                    }
+                    .frame(width: 342, height: 50)
+                    .contentShape(Rectangle())
+                    // Implement navigation to destination page when option button tapped (https://github.com/keen-app/keen/issues/8)
+//                        .onTapGesture {
+//                            print(item.id, "option tapped!")
+//                        }
                 }
-                .frame(width: 342, height: 50)
-                .contentShape(Rectangle())
-                // Implement navigation to destination page when option button tapped (https://github.com/keen-app/keen/issues/8)
-                .onTapGesture {
-                    print(item.id, "option tapped!")
-                }
-                
                 Divider()
                     .frame(width: 332)
             }

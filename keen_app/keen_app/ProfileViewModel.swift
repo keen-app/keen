@@ -16,8 +16,7 @@ class ApiService {
         let url = URL(string: "\(baseUrl)/users")!
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-//            .map { data, response in
-//                // Print the raw data in a readable format
+//            .map { data, response in  // Print raw json for testing
 //                if let jsonString = String(data: data, encoding: .utf8) {
 //                    print("Raw JSON data:\n\(jsonString)")
 //                } else {
@@ -29,7 +28,6 @@ class ApiService {
             .eraseToAnyPublisher()
     }
     
-    
     func getUser(username: String) -> AnyPublisher<[User], Error> {
         let url = URL(string: "\(baseUrl)/user/\(username)")!
         return URLSession.shared.dataTaskPublisher(for: url)
@@ -37,34 +35,62 @@ class ApiService {
             .decode(type: [User].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+    
+    func getUserActivities(username: String) -> AnyPublisher<[Activity], Error> {
+        let url = URL(string: "\(baseUrl)/events/\(username)")!
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: [Activity].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
 }
 
 class ProfileViewModel: ObservableObject {
     private let apiService: ApiService
-    @Published var error: Error? = nil // Default to nil
-    @Published var usersList: [User?] = [] // Default to nil
-    private var cancellables = Set<AnyCancellable>() // Empty set
-    @Published var profileItems: [ProfileItem] = [] // Empty array
-
-    // Dummy user data as fallback
-    @Published var userDetails: User? = User(email: "email", firstName: "firstName", lastName: "lastName", userName: "userName");
+    @Published var error: Error? = nil
+    @Published var usersList: [User?] = []
+    private var cancellables = Set<AnyCancellable>()
+    @Published var profileItems: [ProfileItem] = []
+    // Dummy user and activity details as fallback
+    @Published var activities: [Activity] = dummyActivitiesData
+    @Published var userDetails: User? = dummyUserDetails
+    let currentUsername = "alicej"  // Hardcode current user for now
 
     // Consolidated initializer
     init(apiService: ApiService = ApiService(), userDetails: User? = nil) {
         self.apiService = apiService
-        addProfileItems() // Initialize profileItems with predefined data
-        getAllUserDetails() // Fetch user list from the API
-        getUserDetails(username: "alicej")  // Hardcode one user from the db for now
+        addProfileItems()
+        addAllUserDetails() // Fetch user list from the API
+        addUserDetails(username: currentUsername)  // Get user details from db
+        addActivities(username: currentUsername)  // Get user activities from db
     }
 
     // Function to add profile items
     func addProfileItems() {
-        profileItems = profileData // Assuming profileData is predefined elsewhere
+        profileItems = profileData
+    }
+    
+    // Function to add user activities
+    func addActivities(username: String) {
+        self.apiService.getUserActivities(username: username)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        self.error = error // Handle errors
+                        print(error)
+                    }
+                },
+                receiveValue: { response in
+                    self.activities = response.compactMap{ $0 } // Remove nil values before storing
+                }
+            )
+            .store(in: &cancellables) // Manage Combine subscriptions
     }
 
     // Function to fetch user list
-    func getAllUserDetails() {
-        self.apiService.getAllUsers() // Assuming `getUsers` is a method in `ApiService`
+    func addAllUserDetails() {
+        self.apiService.getAllUsers()
             .receive(on: DispatchQueue.main) // Ensure UI updates on the main thread
             .sink(
                 receiveCompletion: { completion in
@@ -80,7 +106,8 @@ class ProfileViewModel: ObservableObject {
             .store(in: &cancellables) // Manage Combine subscriptions
     }
     
-    func getUserDetails(username: String) {
+    // Function to fetch a specific user
+    func addUserDetails(username: String) {
         self.apiService.getUser(username: username)
             .receive(on: DispatchQueue.main)
             .sink(
@@ -91,7 +118,7 @@ class ProfileViewModel: ObservableObject {
                     }
                 },
                 receiveValue: { response in
-                    self.userDetails = response[0] // Store the fetched user details
+                    self.userDetails = response[0] // Store the fetched user details (there will only be one thing in the list)
                 }
             )
             .store(in: &cancellables) // Manage Combine subscriptions
@@ -104,3 +131,17 @@ let profileData = [
     ProfileItem(settingsName: "Account settings", icon: Image(systemName: "gearshape.fill")),
     ProfileItem(settingsName: "Friends", icon: Image(systemName: "heart.fill"))
 ]
+
+let dummyActivitiesData = [
+    Activity(name: "Kayaking", visibility: "private",
+             startTime: "2024-09-05T10:00:00.000Z",
+             endTime: "2024-09-05T18:00:00.000Z", emoji: "🛶"),
+    Activity(name: "Pilates", visibility: "public",
+             startTime: "2025-03-01T19:00:00.000Z",
+             endTime: "2025-03-01T23:00:00.000Z", emoji: "🧘‍♀️"),
+    Activity(name: "Escape room", visibility: "public",
+             startTime: "2025-04-01T19:00:00.000Z",
+             endTime: "2025-05-01T23:00:00.000Z", emoji: "🚪"),
+]
+
+let dummyUserDetails = User(email: "email", firstName: "firstName", lastName: "lastName", userName: "userName")
