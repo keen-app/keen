@@ -55,10 +55,6 @@ struct ProfileListView: View {
                     }
                     .frame(width: 342, height: 50)
                     .contentShape(Rectangle())
-                    // Implement navigation to destination page when option button tapped (https://github.com/keen-app/keen/issues/8)
-//                        .onTapGesture {
-//                            print(item.id, "option tapped!")
-//                        }
                 }
                 Divider()
                     .frame(width: 332)
