@@ -33,7 +33,7 @@ struct ProfileDetails: View {
 }
 
 struct ProfileListView: View {
-    var viewModel: ProfileViewModel
+    @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
         VStack {
