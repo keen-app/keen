@@ -12,7 +12,7 @@ import Combine
 class ApiService {
     let baseUrl = "http://localhost:8080"
 
-    func getUsers() -> AnyPublisher<[User], Error> {
+    func getAllUsers() -> AnyPublisher<[User], Error> {
         let url = URL(string: "\(baseUrl)/users")!
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
@@ -29,6 +29,7 @@ class ApiService {
             .eraseToAnyPublisher()
     }
     
+    
     func getUser(username: String) -> AnyPublisher<[User], Error> {
         let url = URL(string: "\(baseUrl)/user/\(username)")!
         return URLSession.shared.dataTaskPublisher(for: url)
@@ -36,19 +37,6 @@ class ApiService {
             .decode(type: [User].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-
-//    func postData(data: [String: Any]) -> AnyPublisher<[String: Any], Error> {
-//        let url = URL(string: "\(baseUrl)/data")!
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.httpBody = try? JSONSerialization.data(withJSONObject: data, options: [])
-//
-//        return URLSession.shared.dataTaskPublisher(for: request)
-//            .map(\.data)
-//            .decode(type: [String: Any].self, decoder: JSONDecoder())
-//            .eraseToAnyPublisher()
-//    }
 }
 
 class ProfileViewModel: ObservableObject {
@@ -76,7 +64,7 @@ class ProfileViewModel: ObservableObject {
 
     // Function to fetch user list
     func getAllUserDetails() {
-        self.apiService.getUsers() // Assuming `getUsers` is a method in `ApiService`
+        self.apiService.getAllUsers() // Assuming `getUsers` is a method in `ApiService`
             .receive(on: DispatchQueue.main) // Ensure UI updates on the main thread
             .sink(
                 receiveCompletion: { completion in
