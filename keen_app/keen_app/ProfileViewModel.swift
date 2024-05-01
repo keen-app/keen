@@ -12,19 +12,34 @@ import Combine
 class ApiService {
     let baseUrl = "http://localhost:8080"
 
-    func getUsers() -> AnyPublisher<[User], Error> {
+    func getAllUsers() -> AnyPublisher<[User], Error> {
         let url = URL(string: "\(baseUrl)/users")!
         return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-//            .map { data, response in
-//                // Print the raw data in a readable format
-//                if let jsonString = String(data: data, encoding: .utf8) {
-//                    print("Raw JSON data:\n\(jsonString)")
-//                } else {
-//                    print("Failed to convert data to String")
-//                }
-//                return data
-//            }
+            .map { data, response in
+                // Print the raw data in a readable format
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Raw JSON data:\n\(jsonString)")
+                } else {
+                    print("Failed to convert data to String")
+                }
+                return data
+            }
+            .decode(type: [User].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func getCurrentUser() -> AnyPublisher<[User], Error> {
+        let url = URL(string: "\(baseUrl)/user/alicej")! // In future replace `alicej` with current username
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { data, response in
+                // Print the raw data in a readable format
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Raw JSON data:\n\(jsonString)")
+                } else {
+                    print("Failed to convert data to String")
+                }
+                return data
+            }
             .decode(type: [User].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
@@ -67,7 +82,7 @@ class ProfileViewModel: ObservableObject {
 
     // Function to fetch user list
     func getUserDetails() {
-        self.apiService.getUsers() // Assuming `getUsers` is a method in `ApiService`
+        self.apiService.getCurrentUser() // Assuming `getUsers` is a method in `ApiService`
             .receive(on: DispatchQueue.main) // Ensure UI updates on the main thread
             .sink(
                 receiveCompletion: { completion in
