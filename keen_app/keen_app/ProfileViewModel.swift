@@ -11,22 +11,6 @@ import Combine
 
 class ApiService {
     let baseUrl = "http://localhost:8080"
-
-    func getAllUsers() -> AnyPublisher<[User], Error> {
-        let url = URL(string: "\(baseUrl)/users")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-//            .map { data, response in  // Print raw json for testing
-//                if let jsonString = String(data: data, encoding: .utf8) {
-//                    print("Raw JSON data:\n\(jsonString)")
-//                } else {
-//                    print("Failed to convert data to String")
-//                }
-//                return data
-//            }
-            .decode(type: [User].self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
-    }
     
     func getUser(username: String) -> AnyPublisher<[User], Error> {
         let url = URL(string: "\(baseUrl)/user/\(username)")!
@@ -60,7 +44,6 @@ class ProfileViewModel: ObservableObject {
     init(apiService: ApiService = ApiService(), userDetails: User? = nil) {
         self.apiService = apiService
         addProfileItems()
-        addAllUserDetails() // Fetch user list from the API
         addUserDetails(username: currentUsername)  // Get user details from db
         addActivities(username: currentUsername)  // Get user activities from db
     }
@@ -83,24 +66,6 @@ class ProfileViewModel: ObservableObject {
                 },
                 receiveValue: { response in
                     self.activities = response.compactMap{ $0 } // Remove nil values before storing
-                }
-            )
-            .store(in: &cancellables) // Manage Combine subscriptions
-    }
-
-    // Function to fetch user list
-    func addAllUserDetails() {
-        self.apiService.getAllUsers()
-            .receive(on: DispatchQueue.main) // Ensure UI updates on the main thread
-            .sink(
-                receiveCompletion: { completion in
-                    if case .failure(let error) = completion {
-                        self.error = error // Handle errors
-                        print(error)
-                    }
-                },
-                receiveValue: { response in
-                    self.usersList = response // Store the fetched user list
                 }
             )
             .store(in: &cancellables) // Manage Combine subscriptions
