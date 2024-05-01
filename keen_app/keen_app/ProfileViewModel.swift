@@ -28,6 +28,14 @@ class ApiService {
             .decode(type: [User].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+    
+    func getUser(username: String) -> AnyPublisher<[User], Error> {
+        let url = URL(string: "\(baseUrl)/user/\(username)")!
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: [User].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
 
 //    func postData(data: [String: Any]) -> AnyPublisher<[String: Any], Error> {
 //        let url = URL(string: "\(baseUrl)/data")!
@@ -57,7 +65,8 @@ class ProfileViewModel: ObservableObject {
     init(apiService: ApiService = ApiService(), userDetails: User? = nil) {
         self.apiService = apiService
         addProfileItems() // Initialize profileItems with predefined data
-        getUserDetails() // Fetch user list from the API
+        getAllUserDetails() // Fetch user list from the API
+        getUserDetails(username: "alicej")  // Hardcode one user from the db for now
     }
 
     // Function to add profile items
@@ -66,7 +75,7 @@ class ProfileViewModel: ObservableObject {
     }
 
     // Function to fetch user list
-    func getUserDetails() {
+    func getAllUserDetails() {
         self.apiService.getUsers() // Assuming `getUsers` is a method in `ApiService`
             .receive(on: DispatchQueue.main) // Ensure UI updates on the main thread
             .sink(
@@ -78,7 +87,23 @@ class ProfileViewModel: ObservableObject {
                 },
                 receiveValue: { response in
                     self.usersList = response // Store the fetched user list
-                    self.userDetails = response[0]
+                }
+            )
+            .store(in: &cancellables) // Manage Combine subscriptions
+    }
+    
+    func getUserDetails(username: String) {
+        self.apiService.getUser(username: username)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        self.error = error // Handle errors
+                        print(error)
+                    }
+                },
+                receiveValue: { response in
+                    self.userDetails = response[0] // Store the fetched user details
                 }
             )
             .store(in: &cancellables) // Manage Combine subscriptions

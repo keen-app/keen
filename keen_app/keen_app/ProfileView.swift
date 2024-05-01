@@ -25,7 +25,7 @@ struct ProfileDetails: View {
     var body: some View {
         VStack(spacing: 20) {
             ProfilePicture(image: viewModel.userDetails?.profilePicture, size: 100)
-            Text("\(viewModel.userDetails!.firstName) \(viewModel.userDetails!.lastName)")
+            Text("\(viewModel.userDetails!.firstName)")
                 .font(.system(size: 24, weight: .semibold))
         }
         .padding(.top, 50)
