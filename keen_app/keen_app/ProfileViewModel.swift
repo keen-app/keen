@@ -79,10 +79,6 @@ class ProfileViewModel: ObservableObject {
                 receiveValue: { response in
                     self.usersList = response // Store the fetched user list
                     self.userDetails = response[0]
-                    print("RESPONSE: \n\n")
-                    print(self.userDetails!.lastName)
-                    print(response[0].firstName)
-                    print("\n\nFINISH RESPONSE")
                 }
             )
             .store(in: &cancellables) // Manage Combine subscriptions
