@@ -11,21 +11,24 @@ struct ProfileView: View {
     @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
-        VStack(spacing: 35) {
-            ProfileDetails(viewModel: viewModel)
-            ProfileListView(viewModel: viewModel)
-            Spacer()
+        NavigationView {
+            VStack(spacing: 35) {
+                ProfileDetails(viewModel: viewModel)
+                ProfileListView(viewModel: viewModel)
+                Spacer()
+            }
         }
+        .foregroundColor(.black)
     }
 }
 
 struct ProfileDetails: View {
-    var viewModel: ProfileViewModel
+    @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
         VStack(spacing: 20) {
             ProfilePicture(image: viewModel.userDetails?.profilePicture, size: 100)
-            Text(viewModel.userDetails!.firstName)
+            Text("\(viewModel.userDetails!.firstName)")
                 .font(.system(size: 24, weight: .semibold))
         }
         .padding(.top, 50)
@@ -33,27 +36,26 @@ struct ProfileDetails: View {
 }
 
 struct ProfileListView: View {
-    var viewModel: ProfileViewModel
+    @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
         VStack {
             ForEach(viewModel.profileItems) { item in
-                HStack {
-                    item.icon
-                        .frame(width: 40)
-                    Text(item.settingsName)
-                        .font(.system(size: 16, weight: .semibold))
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .frame(width: 40)
+                NavigationLink(
+                    destination: MyActivitiesView(viewModel: viewModel)
+                ) {
+                    HStack {
+                        item.icon
+                            .frame(width: 40)
+                        Text(item.settingsName)
+                            .font(.system(size: 16, weight: .semibold))
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .frame(width: 40)
+                    }
+                    .frame(width: 342, height: 50)
+                    .contentShape(Rectangle())
                 }
-                .frame(width: 342, height: 50)
-                .contentShape(Rectangle())
-                // Implement navigation to destination page when option button tapped (https://github.com/keen-app/keen/issues/8)
-                .onTapGesture {
-                    print(item.id, "option tapped!")
-                }
-                
                 Divider()
                     .frame(width: 332)
             }

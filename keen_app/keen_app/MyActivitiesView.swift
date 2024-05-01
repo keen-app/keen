@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct MyActivitiesView: View {
-    @StateObject var viewModel: MyActivitiesViewModel
+    @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
@@ -25,14 +25,13 @@ struct MyActivitiesView: View {
 }
 
 struct ActivityList: View {
-    var viewModel: MyActivitiesViewModel
+    @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             ForEach(viewModel.activities) { activity in
                 HStack {
-                    Text(activity.emoji)
-                        .font(.system(size: 45))
+                    ActivityEmoji(emoji: activity.emoji).body
                     Text(activity.name)
                         .font(.system(size: 18, weight: .bold))
                 }
@@ -47,7 +46,21 @@ struct ActivityList: View {
     }
 }
 
+// Handle missing emoji from db
+struct ActivityEmoji: View {
+    var emoji: String?
+    var body: Text {
+        if let emoji {
+            return Text(emoji)
+                .font(.system(size: 45))
+        } else {
+            return Text("❗️")
+                .font(.system(size: 45))
+        }
+    }
+}
+
 
 #Preview {
-    MyActivitiesView(viewModel: MyActivitiesViewModel())
+    MyActivitiesView(viewModel: ProfileViewModel(userDetails: nil))
 }

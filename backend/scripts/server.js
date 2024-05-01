@@ -15,17 +15,18 @@ app.listen(
     () => console.log(`Server started on http://localhost:${PORT}`)
 );
 
+/**============================================
+ *               GET REQUESTS
+ *=============================================**/
+
 app.get('/', (req, res) => {
     res.status(200).send("Welcome to Keen's API server!");
 });
 
-// GET http://localhost:8080/user
-// The callback function is run when the route is requested i.e. it is the "handler"
-// `req` is the incoming data, `res` is the data we want to send back to the client
-// No incoming data in this API call, so we ignore `req`
+// Get information of all users
 app.get('/users', async (req, res) => {
     try {
-        const query = await db.getUsers();
+        const query = await db.getAllUsers();
         if (query === db.QUERY_ERROR) throw "Error querying users from database";
         res.status(200).send(query);
     } catch (e) {
@@ -33,7 +34,35 @@ app.get('/users', async (req, res) => {
     }
 });
 
-// POST http://localhost:8080/user/
+// Get info of a specific user
+app.get('/user/:username', async function(req, res) {
+    const username = req.params.username;
+    try {
+        const query = await db.getUser(username);
+        if (query === db.QUERY_ERROR) throw "Error querying user information from database";
+        res.status(200).send(query);
+    } catch (e) {
+        res.status(500).send({error: e});
+    }
+});
+
+// Get all events keened by a specific user
+app.get('/events/:username', async function (req, res) {
+    const username = req.params.username;
+    try {
+        const query = await db.getUsersKeenedEvents(username);
+        if (query === db.USER_DOES_NOT_EXIST) throw "Username does not exist in the database";
+        if (query === db.QUERY_ERROR) throw "Error retrieving user's saved events";
+        res.status(200).send(query);
+    } catch (e) {
+        res.status(500).send({error: e});
+    }
+});
+
+/**============================================
+ *               POST REQUESTS
+ *=============================================**/
+
 // Add a new user to the database.
 app.post('/user/', async (req, res) => {
     try {
