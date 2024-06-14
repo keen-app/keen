@@ -1,5 +1,5 @@
 //
-//  MyActivitiesViewModel.swift
+//  ActivityViewModel.swift
 //  keen_app
 //
 //  Created by Jennifer Tan on 4/29/24.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class MyActivitiesViewModel: ObservableObject {
+class ActivityViewModel: ObservableObject {
     @Published var activities: [Activity] = []
     
     init() {
