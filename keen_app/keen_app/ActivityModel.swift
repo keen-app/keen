@@ -6,11 +6,20 @@
 //
 
 import Foundation
-
 import SwiftUI
 
-struct Activity: Identifiable {
+struct Activity: Codable, Identifiable {
     var id = UUID()
-    var name: String
-    var emoji: String
+    var name, visibility, startTime, endTime: String
+    var emoji, location, url, description: String?
+    enum CodingKeys: String, CodingKey {
+        case name
+        case visibility
+        case startTime = "start"
+        case endTime = "end"
+        case emoji
+        case location
+        case url
+        case description
+    }
 }

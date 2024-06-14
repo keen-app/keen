@@ -1,0 +1,41 @@
+Table User {
+  email varchar [pk]
+  first_name varchar [not null]
+  last_name varchar [not null]
+  username varchar [not null, unique]
+}
+
+Enum PRIVACY_SETTING {
+  "public"
+  "private"
+}
+
+Table Event {
+  id serial [pk]
+  name varchar [not null]
+  visibility PRIVACY_SETTING [not null]
+  location varchar
+  url text
+  emoji varchar
+  description text
+  start timestamptz
+  end timestamptz
+}
+
+Table Collection {
+  id serial [pk]
+  name varchar [not null]
+  description text
+  user_email varchar [ref: <> User.email, not null]
+}
+
+Table Contains {
+  event_id int [pk, ref: > Event.id]
+  collection_id int [pk, ref: > Collection.id]
+  datetime_added timestamptz [default: `now()`]
+}
+
+Table Keened {
+  user_email varchar [pk, ref: - User.email]
+  event_id int [pk, ref: > Event.id]
+}
