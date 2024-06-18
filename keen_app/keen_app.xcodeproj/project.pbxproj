@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69722BD51308008F9B94 /* ProfileModel.swift */; };
 		1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */; };
+		1F2E9F652C21C08200B517DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E9F642C21C08200B517DB /* SettingsView.swift */; };
+		1F2E9F672C21C0AF00B517DB /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E9F662C21C0AF00B517DB /* FriendsView.swift */; };
+		1F2E9F692C21C46400B517DB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E9F682C21C46400B517DB /* HeaderView.swift */; };
 		1F5189B22BDF721F007E6F96 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B12BDF721F007E6F96 /* MainView.swift */; };
 		1F5189B42BDF7231007E6F96 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B32BDF7231007E6F96 /* HomeView.swift */; };
 		1F5189B62BDF7238007E6F96 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B52BDF7238007E6F96 /* AddActivityView.swift */; };
@@ -44,6 +47,9 @@
 /* Begin PBXFileReference section */
 		1F2C69722BD51308008F9B94 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		1F2E9F642C21C08200B517DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1F2E9F662C21C0AF00B517DB /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		1F2E9F682C21C46400B517DB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		1F5189B12BDF721F007E6F96 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = keen_app/MainView.swift; sourceTree = SOURCE_ROOT; };
 		1F5189B32BDF7231007E6F96 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1F5189B52BDF7238007E6F96 /* AddActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
@@ -117,8 +123,11 @@
 				1FC240142BDFB441002DE8DC /* MyActivitiesModel.swift */,
 				1F5189B32BDF7231007E6F96 /* HomeView.swift */,
 				1FDB49112BD4FED600945410 /* ProfileView.swift */,
+				1F2E9F642C21C08200B517DB /* SettingsView.swift */,
 				1F2C69722BD51308008F9B94 /* ProfileModel.swift */,
 				1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */,
+				1F2E9F662C21C0AF00B517DB /* FriendsView.swift */,
+				1F2E9F682C21C46400B517DB /* HeaderView.swift */,
 				1FDB49132BD4FED700945410 /* Assets.xcassets */,
 				1FDB49152BD4FED700945410 /* Preview Content */,
 			);
@@ -283,14 +292,17 @@
 			files = (
 				1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */,
 				1F5189B82BDF7241007E6F96 /* MainView.swift in Sources */,
+				1F2E9F652C21C08200B517DB /* SettingsView.swift in Sources */,
 				1F5189B62BDF7238007E6F96 /* AddActivityView.swift in Sources */,
 				1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */,
 				1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */,
+				1F2E9F672C21C0AF00B517DB /* FriendsView.swift in Sources */,
 				1F5189B42BDF7231007E6F96 /* HomeView.swift in Sources */,
 				1FC240152BDFB441002DE8DC /* MyActivitiesModel.swift in Sources */,
 				1F5189B22BDF721F007E6F96 /* MainView.swift in Sources */,
 				1FC240132BDFB21D002DE8DC /* MyActivitiesView.swift in Sources */,
 				1FDB49102BD4FED600945410 /* keenApp.swift in Sources */,
+				1F2E9F692C21C46400B517DB /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

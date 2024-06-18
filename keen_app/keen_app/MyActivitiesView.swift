@@ -9,18 +9,26 @@ import Foundation
 import SwiftUI
 
 struct MyActivitiesView: View {
+    @Environment(\.presentationMode) var presentation
     @StateObject var viewModel: ProfileViewModel
     
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
-            Text("My activities")
-                .font(.system(size: 20, weight: .bold))
-            ActivityList(viewModel: viewModel)
-            Spacer()
+            HeaderView(
+                icon: "chevron.left",
+                iconAction: { presentation.wrappedValue.dismiss() },
+                heading: "My activities"
+            )
+            
+            // Page content to be scrolled
+            ScrollView {
+                ActivityList(viewModel: viewModel)
+            }
         }
         .padding(.top, 15)
-        .containerRelativeFrame([.horizontal, .vertical])
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGray6))
+        .navigationBarBackButtonHidden(true)
     }
 }
 
