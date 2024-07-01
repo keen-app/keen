@@ -14,13 +14,13 @@ struct MyActivitiesView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
             Text("My activities")
-                .font(.system(size: 20, weight: .bold))
+                .font(.titleBold)
             ActivityList(viewModel: viewModel)
             Spacer()
         }
         .padding(.top, 15)
         .containerRelativeFrame([.horizontal, .vertical])
-        .background(Color(.systemGray6))
+        .background(Color.backgroundGrey)
     }
 }
 
@@ -33,7 +33,7 @@ struct ActivityList: View {
                 HStack {
                     ActivityEmoji(emoji: activity.emoji).body
                     Text(activity.name)
-                        .font(.system(size: 18, weight: .bold))
+                        .font(.headlineBold)
                 }
                 .frame(width: 332, height: 87)
                 .background(
