@@ -1,0 +1,6 @@
+framework module Pods_keen_app_keen_appUITests {
+  umbrella header "Pods-keen_app-keen_appUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

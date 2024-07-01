@@ -8,30 +8,62 @@
 import Foundation
 import SwiftUI
 import Combine
+import Alamofire
 
 class ApiService {
+    static let sharedInstance = ApiService()
+    typealias CompletionHandler<T: Codable> = (Result<[T], Error>) -> Void
+    
     let baseUrl = "http://localhost:8080"
     
-    func getUser(username: String) -> AnyPublisher<[User], Error> {
+    func getUser<T: Codable>(username: String, completion: @escaping CompletionHandler<T>) {
         let url = URL(string: "\(baseUrl)/user/\(username)")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: [User].self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil)
+            .response{ resp in
+                switch resp.result{
+                case .success(let data):
+                    do{
+                        let jsonData = try JSONDecoder().decode([T].self, from: data!)
+                        print(jsonData)
+                        completion(.success(jsonData))
+                    } catch {
+                        print(error.localizedDescription)
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    completion(.failure(error))
+                }
+            }
     }
     
-    func getUserActivities(username: String) -> AnyPublisher<[Activity], Error> {
+    func getUserActivities<T: Codable>(username: String, completion: @escaping CompletionHandler<T>) {
         let url = URL(string: "\(baseUrl)/events/\(username)")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: [Activity].self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil)
+            .response{ resp in
+                switch resp.result{
+                case .success(let data):
+                    do{
+                        let jsonData = try JSONDecoder().decode([T].self, from: data!)
+                        print("Activities: \(jsonData)")
+                        completion(.success(jsonData))
+                    } catch {
+                        print("Activities Error 1: \(error.localizedDescription)")
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    print("Activities Error 2: \(error.localizedDescription)")
+                    completion(.failure(error))
+                }
+            }
     }
+    
 }
 
 class ProfileViewModel: ObservableObject {
     private let apiService: ApiService
-    @Published var error: Error? = nil
+//    @Published var error: Error? = nil
+    @Published var error: String? = nil
     @Published var usersList: [User?] = []
     private var cancellables = Set<AnyCancellable>()
     @Published var profileItems: [ProfileItem] = []
@@ -55,38 +87,36 @@ class ProfileViewModel: ObservableObject {
     
     // Function to add user activities
     func addActivities(username: String) {
-        self.apiService.getUserActivities(username: username)
-            .receive(on: DispatchQueue.main)
-            .sink(
-                receiveCompletion: { completion in
-                    if case .failure(let error) = completion {
-                        self.error = error // Handle errors
-                        print(error)
-                    }
-                },
-                receiveValue: { response in
-                    self.activities = response.compactMap{ $0 } // Remove nil values before storing
+        ApiService.sharedInstance.getUserActivities(username: username) { [weak self] (result: Result<[Activity], Error>) in
+            switch result {
+            case .success(let activities):
+                DispatchQueue.main.async {
+                    self?.activities = activities
+                    self?.error = nil
                 }
-            )
-            .store(in: &cancellables) // Manage Combine subscriptions
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.error = error.localizedDescription
+                }
+            }
+        }
     }
     
     // Function to fetch a specific user
     func addUserDetails(username: String) {
-        self.apiService.getUser(username: username)
-            .receive(on: DispatchQueue.main)
-            .sink(
-                receiveCompletion: { completion in
-                    if case .failure(let error) = completion {
-                        self.error = error // Handle errors
-                        print(error)
-                    }
-                },
-                receiveValue: { response in
-                    self.userDetails = response[0] // Store the fetched user details (there will only be one thing in the list)
+        ApiService.sharedInstance.getUser(username: username) { [weak self] (result: Result<[User], Error>) in
+            switch result {
+            case .success(let users):
+                DispatchQueue.main.async {
+                    self?.userDetails = users[0]
+                    self?.error = nil
                 }
-            )
-            .store(in: &cancellables) // Manage Combine subscriptions
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.error = error.localizedDescription
+                }
+            }
+        }
     }
     
 }

@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69722BD51308008F9B94 /* ProfileModel.swift */; };
 		1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */; };
-		1F5189B22BDF721F007E6F96 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B12BDF721F007E6F96 /* MainView.swift */; };
 		1F5189B42BDF7231007E6F96 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B32BDF7231007E6F96 /* HomeView.swift */; };
 		1F5189B62BDF7238007E6F96 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B52BDF7238007E6F96 /* AddActivityView.swift */; };
 		1F5189B82BDF7241007E6F96 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B72BDF7241007E6F96 /* MainView.swift */; };
 		1FC240132BDFB21D002DE8DC /* MyActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC240122BDFB21D002DE8DC /* MyActivitiesView.swift */; };
 		1FC240152BDFB441002DE8DC /* MyActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC240142BDFB441002DE8DC /* MyActivitiesModel.swift */; };
 		1FDB49102BD4FED600945410 /* keenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB490F2BD4FED600945410 /* keenApp.swift */; };
-		1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49112BD4FED600945410 /* ProfileView.swift */; };
 		1FDB49142BD4FED700945410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB49132BD4FED700945410 /* Assets.xcassets */; };
 		1FDB49172BD4FED700945410 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB49162BD4FED700945410 /* Preview Assets.xcassets */; };
 		1FDB49212BD4FED800945410 /* keen_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49202BD4FED800945410 /* keen_appTests.swift */; };
 		1FDB492B2BD4FED800945410 /* keen_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB492A2BD4FED800945410 /* keen_appUITests.swift */; };
 		1FDB492D2BD4FED800945410 /* keen_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB492C2BD4FED800945410 /* keen_appUITestsLaunchTests.swift */; };
+		2AB917D92C3292B1008EFB5A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49112BD4FED600945410 /* ProfileView.swift */; };
+		707B09B704C6CFE5DE6DBA9B /* Pods_keen_app_keen_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A128A9756C77B3BBED7E2B /* Pods_keen_app_keen_appUITests.framework */; };
+		B33970DF24A0CA012C6E46A9 /* Pods_keen_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EB6A03B040050228B5AB90 /* Pods_keen_appTests.framework */; };
+		CB6A7B7028091F49CD7D1BDF /* Pods_keen_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80866F90CC63C31E886B58BF /* Pods_keen_app.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,17 +44,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F2C69722BD51308008F9B94 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
-		1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		02464AEE70208F65996D8C55 /* Pods-keen_app-keen_appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_app-keen_appUITests.debug.xcconfig"; path = "Target Support Files/Pods-keen_app-keen_appUITests/Pods-keen_app-keen_appUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		16AFF9887F65FEFBB99FBFE5 /* Pods-keen_app-keen_appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_app-keen_appUITests.release.xcconfig"; path = "Target Support Files/Pods-keen_app-keen_appUITests/Pods-keen_app-keen_appUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1F2C69722BD51308008F9B94 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileModel.swift; path = keen_app/ProfileModel.swift; sourceTree = SOURCE_ROOT; };
+		1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = keen_app/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
 		1F5189B12BDF721F007E6F96 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = keen_app/MainView.swift; sourceTree = SOURCE_ROOT; };
-		1F5189B32BDF7231007E6F96 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		1F5189B52BDF7238007E6F96 /* AddActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
-		1F5189B72BDF7241007E6F96 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		1FC240122BDFB21D002DE8DC /* MyActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesView.swift; sourceTree = "<group>"; };
-		1FC240142BDFB441002DE8DC /* MyActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesModel.swift; sourceTree = "<group>"; };
+		1F5189B32BDF7231007E6F96 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = keen_app/HomeView.swift; sourceTree = SOURCE_ROOT; };
+		1F5189B52BDF7238007E6F96 /* AddActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddActivityView.swift; path = keen_app/AddActivityView.swift; sourceTree = SOURCE_ROOT; };
+		1F5189B72BDF7241007E6F96 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = keen_app/MainView.swift; sourceTree = SOURCE_ROOT; };
+		1FC240122BDFB21D002DE8DC /* MyActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyActivitiesView.swift; path = keen_app/MyActivitiesView.swift; sourceTree = SOURCE_ROOT; };
+		1FC240142BDFB441002DE8DC /* MyActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyActivitiesModel.swift; path = keen_app/MyActivitiesModel.swift; sourceTree = SOURCE_ROOT; };
 		1FDB490C2BD4FED600945410 /* keen_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keen_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FDB490F2BD4FED600945410 /* keenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keenApp.swift; sourceTree = "<group>"; };
-		1FDB49112BD4FED600945410 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1FDB490F2BD4FED600945410 /* keenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = keenApp.swift; path = keen_app/keenApp.swift; sourceTree = SOURCE_ROOT; };
+		1FDB49112BD4FED600945410 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = keen_app/ProfileView.swift; sourceTree = SOURCE_ROOT; };
 		1FDB49132BD4FED700945410 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FDB49162BD4FED700945410 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FDB491C2BD4FED800945410 /* keen_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keen_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +64,13 @@
 		1FDB49262BD4FED800945410 /* keen_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keen_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDB492A2BD4FED800945410 /* keen_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keen_appUITests.swift; sourceTree = "<group>"; };
 		1FDB492C2BD4FED800945410 /* keen_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keen_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3E00FC59407309CBD2EDE41A /* Pods-keen_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_app.debug.xcconfig"; path = "Target Support Files/Pods-keen_app/Pods-keen_app.debug.xcconfig"; sourceTree = "<group>"; };
+		76DC03338C34F3B4AA8B063A /* Pods-keen_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_appTests.debug.xcconfig"; path = "Target Support Files/Pods-keen_appTests/Pods-keen_appTests.debug.xcconfig"; sourceTree = "<group>"; };
+		79A128A9756C77B3BBED7E2B /* Pods_keen_app_keen_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keen_app_keen_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80866F90CC63C31E886B58BF /* Pods_keen_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keen_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E36712E6ED1BEB6A4C3C4028 /* Pods-keen_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_app.release.xcconfig"; path = "Target Support Files/Pods-keen_app/Pods-keen_app.release.xcconfig"; sourceTree = "<group>"; };
+		F3EB6A03B040050228B5AB90 /* Pods_keen_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_keen_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42C9DE372A484BB65202EC5 /* Pods-keen_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_appTests.release.xcconfig"; path = "Target Support Files/Pods-keen_appTests/Pods-keen_appTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB6A7B7028091F49CD7D1BDF /* Pods_keen_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B33970DF24A0CA012C6E46A9 /* Pods_keen_appTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				707B09B704C6CFE5DE6DBA9B /* Pods_keen_app_keen_appUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +108,8 @@
 				1FDB491F2BD4FED800945410 /* keen_appTests */,
 				1FDB49292BD4FED800945410 /* keen_appUITests */,
 				1FDB490D2BD4FED600945410 /* Products */,
+				7ADC3BB5351436369973EE3B /* Pods */,
+				230CD2D2CDCDE08816B2AF43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +167,29 @@
 			path = keen_appUITests;
 			sourceTree = "<group>";
 		};
+		230CD2D2CDCDE08816B2AF43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80866F90CC63C31E886B58BF /* Pods_keen_app.framework */,
+				79A128A9756C77B3BBED7E2B /* Pods_keen_app_keen_appUITests.framework */,
+				F3EB6A03B040050228B5AB90 /* Pods_keen_appTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7ADC3BB5351436369973EE3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E00FC59407309CBD2EDE41A /* Pods-keen_app.debug.xcconfig */,
+				E36712E6ED1BEB6A4C3C4028 /* Pods-keen_app.release.xcconfig */,
+				02464AEE70208F65996D8C55 /* Pods-keen_app-keen_appUITests.debug.xcconfig */,
+				16AFF9887F65FEFBB99FBFE5 /* Pods-keen_app-keen_appUITests.release.xcconfig */,
+				76DC03338C34F3B4AA8B063A /* Pods-keen_appTests.debug.xcconfig */,
+				F42C9DE372A484BB65202EC5 /* Pods-keen_appTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FDB49302BD4FED800945410 /* Build configuration list for PBXNativeTarget "keen_app" */;
 			buildPhases = (
+				A742FC7B9581BD9B3FF766E5 /* [CP] Check Pods Manifest.lock */,
 				1FDB49082BD4FED600945410 /* Sources */,
 				1FDB49092BD4FED600945410 /* Frameworks */,
 				1FDB490A2BD4FED600945410 /* Resources */,
+				3219D71B3E9CCC545D3D74DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FDB49332BD4FED800945410 /* Build configuration list for PBXNativeTarget "keen_appTests" */;
 			buildPhases = (
+				B4133026C17514205282C85B /* [CP] Check Pods Manifest.lock */,
 				1FDB49182BD4FED800945410 /* Sources */,
 				1FDB49192BD4FED800945410 /* Frameworks */,
 				1FDB491A2BD4FED800945410 /* Resources */,
@@ -193,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FDB49362BD4FED800945410 /* Build configuration list for PBXNativeTarget "keen_appUITests" */;
 			buildPhases = (
+				3DFFE592AA2CB3DEDF8406FA /* [CP] Check Pods Manifest.lock */,
 				1FDB49222BD4FED800945410 /* Sources */,
 				1FDB49232BD4FED800945410 /* Frameworks */,
 				1FDB49242BD4FED800945410 /* Resources */,
+				13C31212707D41D44C97E743 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,7 +259,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					1FDB490B2BD4FED600945410 = {
 						CreatedOnToolsVersion = 15.2;
@@ -276,19 +320,121 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13C31212707D41D44C97E743 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-keen_app-keen_appUITests/Pods-keen_app-keen_appUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-keen_app-keen_appUITests/Pods-keen_app-keen_appUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-keen_app-keen_appUITests/Pods-keen_app-keen_appUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3219D71B3E9CCC545D3D74DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-keen_app/Pods-keen_app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-keen_app/Pods-keen_app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-keen_app/Pods-keen_app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3DFFE592AA2CB3DEDF8406FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-keen_app-keen_appUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A742FC7B9581BD9B3FF766E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-keen_app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4133026C17514205282C85B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-keen_appTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1FDB49082BD4FED600945410 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */,
 				1F5189B82BDF7241007E6F96 /* MainView.swift in Sources */,
+				2AB917D92C3292B1008EFB5A /* ProfileView.swift in Sources */,
 				1F5189B62BDF7238007E6F96 /* AddActivityView.swift in Sources */,
 				1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */,
 				1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */,
 				1F5189B42BDF7231007E6F96 /* HomeView.swift in Sources */,
 				1FC240152BDFB441002DE8DC /* MyActivitiesModel.swift in Sources */,
-				1F5189B22BDF721F007E6F96 /* MainView.swift in Sources */,
 				1FC240132BDFB21D002DE8DC /* MyActivitiesView.swift in Sources */,
 				1FDB49102BD4FED600945410 /* keenApp.swift in Sources */,
 			);
@@ -364,7 +510,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -427,7 +573,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -448,6 +594,7 @@
 		};
 		1FDB49312BD4FED800945410 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E00FC59407309CBD2EDE41A /* Pods-keen_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -476,6 +623,7 @@
 		};
 		1FDB49322BD4FED800945410 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36712E6ED1BEB6A4C3C4028 /* Pods-keen_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -504,6 +652,7 @@
 		};
 		1FDB49342BD4FED800945410 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76DC03338C34F3B4AA8B063A /* Pods-keen_appTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -523,6 +672,7 @@
 		};
 		1FDB49352BD4FED800945410 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F42C9DE372A484BB65202EC5 /* Pods-keen_appTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -542,6 +692,7 @@
 		};
 		1FDB49372BD4FED800945410 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02464AEE70208F65996D8C55 /* Pods-keen_app-keen_appUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -559,6 +710,7 @@
 		};
 		1FDB49382BD4FED800945410 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16AFF9887F65FEFBB99FBFE5 /* Pods-keen_app-keen_appUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

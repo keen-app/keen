@@ -13,3 +13,7 @@ xcuserdata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
+
+keen_app/**/Podfile.lock
+keen_app/Pods/**
+keen_app/**/Pods/**
