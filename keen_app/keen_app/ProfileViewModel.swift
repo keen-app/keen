@@ -16,14 +16,6 @@ class ApiService {
     
     let baseUrl = "http://localhost:8080"
     
-//    func getUser(username: String) -> AnyPublisher<[User], Error> {
-//        let url = URL(string: "\(baseUrl)/user/\(username)")!
-//        return URLSession.shared.dataTaskPublisher(for: url)
-//            .map(\.data)
-//            .decode(type: [User].self, decoder: JSONDecoder())
-//            .eraseToAnyPublisher()
-//    }
-    
     func getUser<T: Codable>(username: String, completion: @escaping CompletionHandler<T>) {
         let url = URL(string: "\(baseUrl)/user/\(username)")!
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil)
@@ -53,26 +45,19 @@ class ApiService {
                 case .success(let data):
                     do{
                         let jsonData = try JSONDecoder().decode([T].self, from: data!)
-                        print(jsonData)
+                        print("Activities: \(jsonData)")
                         completion(.success(jsonData))
                     } catch {
-                        print(error.localizedDescription)
+                        print("Activities Error 1: \(error.localizedDescription)")
                         completion(.failure(error))
                     }
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("Activities Error 2: \(error.localizedDescription)")
                     completion(.failure(error))
                 }
             }
     }
     
-//    func getUserActivities(username: String) -> AnyPublisher<[Activity], Error> {
-//        let url = URL(string: "\(baseUrl)/events/\(username)")!
-//        return URLSession.shared.dataTaskPublisher(for: url)
-//            .map(\.data)
-//            .decode(type: [Activity].self, decoder: JSONDecoder())
-//            .eraseToAnyPublisher()
-//    }
 }
 
 class ProfileViewModel: ObservableObject {
@@ -102,21 +87,7 @@ class ProfileViewModel: ObservableObject {
     
     // Function to add user activities
     func addActivities(username: String) {
-//        self.apiService.getUserActivities(username: username)
-//            .receive(on: DispatchQueue.main)
-//            .sink(
-//                receiveCompletion: { completion in
-//                    if case .failure(let error) = completion {
-//                        self.error = error // Handle errors
-//                        print(error)
-//                    }
-//                },
-//                receiveValue: { response in
-//                    self.activities = response.compactMap{ $0 } // Remove nil values before storing
-//                }
-//            )
-//            .store(in: &cancellables) // Manage Combine subscriptions
-        ApiService.sharedInstance.getUser(username: username) { [weak self] (result: Result<[Activity], Error>) in
+        ApiService.sharedInstance.getUserActivities(username: username) { [weak self] (result: Result<[Activity], Error>) in
             switch result {
             case .success(let activities):
                 DispatchQueue.main.async {
@@ -133,20 +104,6 @@ class ProfileViewModel: ObservableObject {
     
     // Function to fetch a specific user
     func addUserDetails(username: String) {
-//        self.apiService.getUser(username: username)
-//            .receive(on: DispatchQueue.main)
-//            .sink(
-//                receiveCompletion: { completion in
-//                    if case .failure(let error) = completion {
-//                        self.error = error // Handle errors
-//                        print(error)
-//                    }
-//                },
-//                receiveValue: { response in
-//                    self.userDetails = response[0] // Store the fetched user details (there will only be one thing in the list)
-//                }
-//            )
-//            .store(in: &cancellables) // Manage Combine subscriptions
         ApiService.sharedInstance.getUser(username: username) { [weak self] (result: Result<[User], Error>) in
             switch result {
             case .success(let users):

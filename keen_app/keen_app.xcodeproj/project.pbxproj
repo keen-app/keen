@@ -9,19 +9,18 @@
 /* Begin PBXBuildFile section */
 		1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69722BD51308008F9B94 /* ProfileModel.swift */; };
 		1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */; };
-		1F5189B22BDF721F007E6F96 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B12BDF721F007E6F96 /* MainView.swift */; };
 		1F5189B42BDF7231007E6F96 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B32BDF7231007E6F96 /* HomeView.swift */; };
 		1F5189B62BDF7238007E6F96 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B52BDF7238007E6F96 /* AddActivityView.swift */; };
 		1F5189B82BDF7241007E6F96 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5189B72BDF7241007E6F96 /* MainView.swift */; };
 		1FC240132BDFB21D002DE8DC /* MyActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC240122BDFB21D002DE8DC /* MyActivitiesView.swift */; };
 		1FC240152BDFB441002DE8DC /* MyActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC240142BDFB441002DE8DC /* MyActivitiesModel.swift */; };
 		1FDB49102BD4FED600945410 /* keenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB490F2BD4FED600945410 /* keenApp.swift */; };
-		1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49112BD4FED600945410 /* ProfileView.swift */; };
 		1FDB49142BD4FED700945410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB49132BD4FED700945410 /* Assets.xcassets */; };
 		1FDB49172BD4FED700945410 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDB49162BD4FED700945410 /* Preview Assets.xcassets */; };
 		1FDB49212BD4FED800945410 /* keen_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49202BD4FED800945410 /* keen_appTests.swift */; };
 		1FDB492B2BD4FED800945410 /* keen_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB492A2BD4FED800945410 /* keen_appUITests.swift */; };
 		1FDB492D2BD4FED800945410 /* keen_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB492C2BD4FED800945410 /* keen_appUITestsLaunchTests.swift */; };
+		2AB917D92C3292B1008EFB5A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49112BD4FED600945410 /* ProfileView.swift */; };
 		707B09B704C6CFE5DE6DBA9B /* Pods_keen_app_keen_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A128A9756C77B3BBED7E2B /* Pods_keen_app_keen_appUITests.framework */; };
 		B33970DF24A0CA012C6E46A9 /* Pods_keen_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EB6A03B040050228B5AB90 /* Pods_keen_appTests.framework */; };
 		CB6A7B7028091F49CD7D1BDF /* Pods_keen_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80866F90CC63C31E886B58BF /* Pods_keen_app.framework */; };
@@ -47,17 +46,17 @@
 /* Begin PBXFileReference section */
 		02464AEE70208F65996D8C55 /* Pods-keen_app-keen_appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_app-keen_appUITests.debug.xcconfig"; path = "Target Support Files/Pods-keen_app-keen_appUITests/Pods-keen_app-keen_appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		16AFF9887F65FEFBB99FBFE5 /* Pods-keen_app-keen_appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-keen_app-keen_appUITests.release.xcconfig"; path = "Target Support Files/Pods-keen_app-keen_appUITests/Pods-keen_app-keen_appUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1F2C69722BD51308008F9B94 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		1F2C69722BD51308008F9B94 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileModel.swift; path = keen_app/ProfileModel.swift; sourceTree = SOURCE_ROOT; };
 		1F2C69762BD522E6008F9B94 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = keen_app/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
 		1F5189B12BDF721F007E6F96 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = keen_app/MainView.swift; sourceTree = SOURCE_ROOT; };
-		1F5189B32BDF7231007E6F96 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		1F5189B52BDF7238007E6F96 /* AddActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
-		1F5189B72BDF7241007E6F96 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		1FC240122BDFB21D002DE8DC /* MyActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesView.swift; sourceTree = "<group>"; };
-		1FC240142BDFB441002DE8DC /* MyActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivitiesModel.swift; sourceTree = "<group>"; };
+		1F5189B32BDF7231007E6F96 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = keen_app/HomeView.swift; sourceTree = SOURCE_ROOT; };
+		1F5189B52BDF7238007E6F96 /* AddActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddActivityView.swift; path = keen_app/AddActivityView.swift; sourceTree = SOURCE_ROOT; };
+		1F5189B72BDF7241007E6F96 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = keen_app/MainView.swift; sourceTree = SOURCE_ROOT; };
+		1FC240122BDFB21D002DE8DC /* MyActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyActivitiesView.swift; path = keen_app/MyActivitiesView.swift; sourceTree = SOURCE_ROOT; };
+		1FC240142BDFB441002DE8DC /* MyActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyActivitiesModel.swift; path = keen_app/MyActivitiesModel.swift; sourceTree = SOURCE_ROOT; };
 		1FDB490C2BD4FED600945410 /* keen_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keen_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FDB490F2BD4FED600945410 /* keenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keenApp.swift; sourceTree = "<group>"; };
-		1FDB49112BD4FED600945410 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1FDB490F2BD4FED600945410 /* keenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = keenApp.swift; path = keen_app/keenApp.swift; sourceTree = SOURCE_ROOT; };
+		1FDB49112BD4FED600945410 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = keen_app/ProfileView.swift; sourceTree = SOURCE_ROOT; };
 		1FDB49132BD4FED700945410 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FDB49162BD4FED700945410 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FDB491C2BD4FED800945410 /* keen_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keen_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,7 +259,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					1FDB490B2BD4FED600945410 = {
 						CreatedOnToolsVersion = 15.2;
@@ -429,14 +428,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */,
 				1F5189B82BDF7241007E6F96 /* MainView.swift in Sources */,
+				2AB917D92C3292B1008EFB5A /* ProfileView.swift in Sources */,
 				1F5189B62BDF7238007E6F96 /* AddActivityView.swift in Sources */,
 				1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */,
 				1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */,
 				1F5189B42BDF7231007E6F96 /* HomeView.swift in Sources */,
 				1FC240152BDFB441002DE8DC /* MyActivitiesModel.swift in Sources */,
-				1F5189B22BDF721F007E6F96 /* MainView.swift in Sources */,
 				1FC240132BDFB21D002DE8DC /* MyActivitiesView.swift in Sources */,
 				1FDB49102BD4FED600945410 /* keenApp.swift in Sources */,
 			);
