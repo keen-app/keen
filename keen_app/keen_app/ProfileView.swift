@@ -17,6 +17,8 @@ struct ProfileView: View {
                 ProfileListView(viewModel: viewModel)
                 Spacer()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(.systemGray6))
         }
         .foregroundColor(.black)
     }
@@ -37,29 +39,49 @@ struct ProfileDetails: View {
 
 struct ProfileListView: View {
     @StateObject var viewModel: ProfileViewModel
-    
+
     var body: some View {
         VStack {
-            ForEach(viewModel.profileItems) { item in
-                NavigationLink(
-                    destination: MyActivitiesView(viewModel: viewModel)
-                ) {
-                    HStack {
-                        item.icon
-                            .frame(width: 40)
-                        Text(item.settingsName)
-                            .font(.system(size: 16, weight: .semibold))
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .frame(width: 40)
-                    }
-                    .frame(width: 342, height: 50)
-                    .contentShape(Rectangle())
-                }
-                Divider()
-                    .frame(width: 332)
-            }
+            profileOptionView(
+                destination: MyActivitiesView(viewModel: viewModel),
+                icon: "list.bullet",
+                name: "My activities"
+            )
+            profileOptionView(
+                destination: SettingsView(),
+                icon: "gearshape.fill",
+                name: "Account settings"
+            )
+            profileOptionView(
+                destination: FriendsView(),
+                icon: "heart.fill",
+                name: "Friends"
+            )
         }
+    }
+}
+
+struct profileOptionView<Destination: View>: View {
+    var destination: Destination
+    var icon: String
+    var name: String
+    
+    var body: some View {
+        NavigationLink(destination: destination) {
+            HStack {
+                Image(systemName: icon)
+                    .frame(width: 40)
+                Text(name)
+                    .font(.system(size: 16, weight: .semibold))
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .frame(width: 40)
+            }
+            .frame(width: 342, height: 50)
+            .contentShape(Rectangle())
+        }
+        Divider()
+            .frame(width: 332)
     }
 }
 

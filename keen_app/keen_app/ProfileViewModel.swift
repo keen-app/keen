@@ -34,7 +34,6 @@ class ProfileViewModel: ObservableObject {
     @Published var error: Error? = nil
     @Published var usersList: [User?] = []
     private var cancellables = Set<AnyCancellable>()
-    @Published var profileItems: [ProfileItem] = []
     // Dummy user and activity details as fallback
     @Published var activities: [Activity] = dummyActivitiesData
     @Published var userDetails: User? = dummyUserDetails
@@ -43,14 +42,8 @@ class ProfileViewModel: ObservableObject {
     // Consolidated initializer
     init(apiService: ApiService = ApiService(), userDetails: User? = nil) {
         self.apiService = apiService
-        addProfileItems()
         addUserDetails(username: currentUsername)  // Get user details from db
         addActivities(username: currentUsername)  // Get user activities from db
-    }
-
-    // Function to add profile items
-    func addProfileItems() {
-        profileItems = profileData
     }
     
     // Function to add user activities
@@ -90,12 +83,6 @@ class ProfileViewModel: ObservableObject {
     }
     
 }
-
-let profileData = [
-    ProfileItem(settingsName: "My activities", icon: Image(systemName: "list.bullet")),
-    ProfileItem(settingsName: "Account settings", icon: Image(systemName: "gearshape.fill")),
-    ProfileItem(settingsName: "Friends", icon: Image(systemName: "heart.fill"))
-]
 
 let dummyActivitiesData = [
     Activity(name: "Kayaking", visibility: "private",
