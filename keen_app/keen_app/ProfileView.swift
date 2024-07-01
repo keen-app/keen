@@ -17,6 +17,8 @@ struct ProfileView: View {
                 ProfileListView(viewModel: viewModel)
                 Spacer()
             }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .background(Color.backgroundGrey)
         }
         .foregroundColor(.black)
     }
@@ -29,7 +31,7 @@ struct ProfileDetails: View {
         VStack(spacing: 20) {
             ProfilePicture(image: viewModel.userDetails?.profilePicture, size: 100)
             Text("\(viewModel.userDetails!.firstName)")
-                .font(.system(size: 24, weight: .semibold))
+                .font(.headingBold)
         }
         .padding(.top, 50)
     }
@@ -48,7 +50,7 @@ struct ProfileListView: View {
                         item.icon
                             .frame(width: 40)
                         Text(item.settingsName)
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.buttonBold)
                         Spacer()
                         Image(systemName: "chevron.right")
                             .frame(width: 40)
@@ -73,7 +75,7 @@ struct ProfilePicture: View {
                 .scaledToFit()
                 .clipShape(Circle())
         } else {
-            Color.blue
+            Color.primaryGrey
                 .frame(width: size, height: size)
                 .scaledToFit()
                 .clipShape(Circle())

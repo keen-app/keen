@@ -22,6 +22,8 @@
 		1FDB49212BD4FED800945410 /* keen_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB49202BD4FED800945410 /* keen_appTests.swift */; };
 		1FDB492B2BD4FED800945410 /* keen_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB492A2BD4FED800945410 /* keen_appUITests.swift */; };
 		1FDB492D2BD4FED800945410 /* keen_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB492C2BD4FED800945410 /* keen_appUITestsLaunchTests.swift */; };
+		75AF19612C2C04450086DD14 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF19602C2C04450086DD14 /* Color.swift */; };
+		75AF19632C2C09270086DD14 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF19622C2C09270086DD14 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		1FDB49262BD4FED800945410 /* keen_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keen_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDB492A2BD4FED800945410 /* keen_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keen_appUITests.swift; sourceTree = "<group>"; };
 		1FDB492C2BD4FED800945410 /* keen_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keen_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		75AF19602C2C04450086DD14 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		75AF19622C2C09270086DD14 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		1FDB490E2BD4FED600945410 /* keen_app */ = {
 			isa = PBXGroup;
 			children = (
+				75AF195F2C2C041A0086DD14 /* branding */,
 				1FDB490F2BD4FED600945410 /* keenApp.swift */,
 				1F5189B72BDF7241007E6F96 /* MainView.swift */,
 				1F5189B52BDF7238007E6F96 /* AddActivityView.swift */,
@@ -149,6 +154,15 @@
 				1FDB492C2BD4FED800945410 /* keen_appUITestsLaunchTests.swift */,
 			);
 			path = keen_appUITests;
+			sourceTree = "<group>";
+		};
+		75AF195F2C2C041A0086DD14 /* branding */ = {
+			isa = PBXGroup;
+			children = (
+				75AF19602C2C04450086DD14 /* Color.swift */,
+				75AF19622C2C09270086DD14 /* Font.swift */,
+			);
+			path = branding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,11 +297,13 @@
 			files = (
 				1FDB49122BD4FED600945410 /* ProfileView.swift in Sources */,
 				1F5189B82BDF7241007E6F96 /* MainView.swift in Sources */,
+				75AF19612C2C04450086DD14 /* Color.swift in Sources */,
 				1F5189B62BDF7238007E6F96 /* AddActivityView.swift in Sources */,
 				1F2C69732BD51308008F9B94 /* ProfileModel.swift in Sources */,
 				1F2C69772BD522E6008F9B94 /* ProfileViewModel.swift in Sources */,
 				1F5189B42BDF7231007E6F96 /* HomeView.swift in Sources */,
 				1FC240152BDFB441002DE8DC /* MyActivitiesModel.swift in Sources */,
+				75AF19632C2C09270086DD14 /* Font.swift in Sources */,
 				1F5189B22BDF721F007E6F96 /* MainView.swift in Sources */,
 				1FC240132BDFB21D002DE8DC /* MyActivitiesView.swift in Sources */,
 				1FDB49102BD4FED600945410 /* keenApp.swift in Sources */,
